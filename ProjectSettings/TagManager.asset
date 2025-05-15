@@ -41,15 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Elevation
-    uniqueID: 2924884465
+  - name: Layer 1
+    uniqueID: 3095825091
     locked: 0
-  - name: Ground
-    uniqueID: 3073759707
+  - name: Layer 2
+    uniqueID: 2916429249
     locked: 0
-  - name: Stairs
-    uniqueID: 3821364379
+  - name: Layer 3
+    uniqueID: 2570770819
     locked: 0
   - name: Player
-    uniqueID: 1677768461
+    uniqueID: 1634975443
     locked: 0
