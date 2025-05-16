@@ -11,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
+  - Layer 0
   - Layer 1
   - Layer 2
   - Layer 3
-  - 
   - 
   - 
   - 
@@ -47,9 +47,12 @@ TagManager:
   - name: Layer 2
     uniqueID: 2916429249
     locked: 0
+  - name: Player
+    uniqueID: 1634975443
+    locked: 0
   - name: Layer 3
     uniqueID: 2570770819
     locked: 0
-  - name: Player
-    uniqueID: 1634975443
+  - name: WalkBehind
+    uniqueID: 705857985
     locked: 0
