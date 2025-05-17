@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Mountain
+  - Boundary
   layers:
   - Default
   - TransparentFX
@@ -41,17 +43,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Layer 0
+    uniqueID: 3961276729
+    locked: 0
   - name: Layer 1
     uniqueID: 3095825091
     locked: 0
   - name: Layer 2
     uniqueID: 2916429249
     locked: 0
-  - name: Player
-    uniqueID: 1634975443
-    locked: 0
   - name: Layer 3
     uniqueID: 2570770819
+    locked: 0
+  - name: Player
+    uniqueID: 1634975443
     locked: 0
   - name: WalkBehind
     uniqueID: 705857985

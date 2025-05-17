@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4117708543089223626
+--- !u!1 &969878111101297747
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7728906442092446294}
-  - component: {fileID: 3945920123419892375}
-  - component: {fileID: 6558604786015884745}
-  m_Layer: 7
-  m_Name: Layer 1 Trigger
+  - component: {fileID: 1175160373183553084}
+  - component: {fileID: 3888227401752335593}
+  - component: {fileID: -9190650492908462629}
+  m_Layer: 9
+  m_Name: Layer 3 Boundary Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7728906442092446294
+--- !u!4 &1175160373183553084
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4117708543089223626}
+  m_GameObject: {fileID: 969878111101297747}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.0100002, y: 7.535, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.78, y: 7.421, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &3945920123419892375
+--- !u!68 &3888227401752335593
 EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4117708543089223626}
+  m_GameObject: {fileID: 969878111101297747}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -68,26 +68,24 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -0.75, y: 0}
-  - {x: 1.8990021, y: 0}
+  - {x: -1, y: 0}
+  - {x: 1.5, y: 0}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &6558604786015884745
+--- !u!114 &-9190650492908462629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4117708543089223626}
+  m_GameObject: {fileID: 969878111101297747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efaad8b77ba5426d5a10da44a2280012, type: 3}
+  m_Script: {fileID: 11500000, guid: 8819c56867767544ba1cb219b5eb8480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layer: Layer 1
-  sortingLayer: Player
   mountainColliders:
   - {fileID: 0}
   boundaryColliders:
