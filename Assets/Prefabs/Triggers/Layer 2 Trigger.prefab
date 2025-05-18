@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layer: Layer 2
-  sortingLayer: Player
+  sortingLayer: Layer 2
   mountainColliders:
   - {fileID: 0}
   boundaryColliders:
