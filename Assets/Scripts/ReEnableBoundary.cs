@@ -9,16 +9,41 @@ public class ReEnableBoundary : MonoBehaviour
 
     private void Start()
     {
-        // Ensure mountain colliders are disabled at the start
-        foreach (Collider2D mountain in mountainColliders)
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        int layer3Index = LayerMask.NameToLayer("Layer 3");
+        int playerLayer = player != null ? player.layer : -1;
+        Debug.Log($"Player Layer: {playerLayer}");
+        if (player != null)
         {
-            mountain.enabled = false;
+            Debug.Log($"Player name: {player.name}, Layer: {player.layer}, Sorting Layer: {player.GetComponent<SpriteRenderer>()?.sortingLayerName}");
         }
 
-        // Ensure boundary colliders are enabled at the start
+        // At start, always enable Layer 2 - Stone and disable Layer 3 - Boundary
+        foreach (Collider2D mountain in mountainColliders)
+        {
+            mountain.enabled = true;
+        }
         foreach (Collider2D boundary in boundaryColliders)
         {
-            boundary.enabled = true;
+            boundary.enabled = false;
+        }
+
+        // If player is on Layer 3, disable Layer 2 - Stone and enable Layer 3 - Boundary
+        if (playerLayer == layer3Index)
+        {
+            Debug.Log("Player is on Layer 3, switching colliders");
+            foreach (Collider2D mountain in mountainColliders)
+            {
+                mountain.enabled = false;
+            }
+            foreach (Collider2D boundary in boundaryColliders)
+            {
+                boundary.enabled = true;
+            }
+        }
+        else
+        {
+            Debug.Log("Player is NOT on Layer 3, using default collider state");
         }
     }
 
