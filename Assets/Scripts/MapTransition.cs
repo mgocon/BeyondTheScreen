@@ -42,11 +42,11 @@ public class MapTransition : MonoBehaviour
                 break;
 
             case Direction.Left:
-                newPos.x += 2;
+                newPos.x -= 2;
                 break;
 
             case Direction.Right:
-                newPos.x -= 2;
+                newPos.x += 2;
                 break;
         }
         player.transform.position = newPos;
