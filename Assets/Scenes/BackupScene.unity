@@ -4585,11 +4585,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  attackPoint: {fileID: 0}
-  weaponRange: 0
+  attackPoint: {fileID: 579928212}
+  weaponRange: 1.2
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
 --- !u!114 &2117795452
 MonoBehaviour:
   m_ObjectHideFlags: 0

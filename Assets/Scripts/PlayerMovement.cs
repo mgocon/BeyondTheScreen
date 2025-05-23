@@ -6,11 +6,11 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    public int facingDirection = 1; // 1 for right, -1 for left
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Animator animator;
-
-    public int facingDirection = 1; // 1 for right, -1 for left
+    private bool isKnockedBack;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,27 +21,33 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = moveSpeed * moveInput;
+        if (!isKnockedBack)
+        {
+            rb.velocity = moveSpeed * moveInput;
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        // Read the movement input
-        moveInput = context.ReadValue<Vector2>();
-
-        // Extract horizontal and vertical components
-        float horizontal = moveInput.x;
-        float vertical = moveInput.y;
-
-        // Update animator parameters
-        animator.SetFloat("horizontal", Mathf.Abs(horizontal));
-        animator.SetFloat("vertical", Mathf.Abs(vertical)); 
-
-        // Flip the character based on horizontal movement
-        if (horizontal > 0 && transform.localScale.x < 0 || 
-            horizontal < 0 && transform.localScale.x > 0)
+        if (isKnockedBack == false)
         {
-            Flip();
+            // Read the movement input
+            moveInput = context.ReadValue<Vector2>();
+
+            // Extract horizontal and vertical components
+            float horizontal = moveInput.x;
+            float vertical = moveInput.y;
+
+            // Update animator parameters
+            animator.SetFloat("horizontal", Mathf.Abs(horizontal));
+            animator.SetFloat("vertical", Mathf.Abs(vertical));
+
+            // Flip the character based on horizontal movement
+            if (horizontal > 0 && transform.localScale.x < 0 ||
+                horizontal < 0 && transform.localScale.x > 0)
+            {
+                Flip();
+            }
         }
     }
 
@@ -49,5 +55,25 @@ public class PlayerMovement : MonoBehaviour
     {
         facingDirection *= -1;
         transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+    }
+
+    public void Knockback(Transform enemy, float force, float stunTime)
+    {
+        isKnockedBack = true;
+        Vector2 direction = (transform.position - enemy.position).normalized;
+        if(direction == Vector2.zero)
+        {
+            direction = new Vector2(facingDirection, 0); // Default direction if the player is at the same position as the enemy
+        }
+        direction = new Vector2(Mathf.Sign(direction.x), 0);
+        rb.velocity = direction * force;
+        StartCoroutine(KnockbackCounter(stunTime));
+    }
+
+    IEnumerator KnockbackCounter(float stunTime)
+    {
+        yield return new WaitForSeconds(stunTime);
+        rb.velocity = Vector2.zero;
+        isKnockedBack = false;
     }
 }
