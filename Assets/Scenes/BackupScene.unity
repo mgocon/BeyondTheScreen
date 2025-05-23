@@ -318,11 +318,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &305092031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1051471204402204408, guid: 01f0b62c345823d4b81c6acb22517a83, type: 3}
+  m_PrefabInstance: {fileID: 1172096706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &430017649 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 223794753703787049, guid: 01f0b62c345823d4b81c6acb22517a83, type: 3}
   m_PrefabInstance: {fileID: 1172096706}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &430017650 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5500324905842617810, guid: 01f0b62c345823d4b81c6acb22517a83, type: 3}
+  m_PrefabInstance: {fileID: 1172096706}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &430017657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305092031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4ea2ec64e258948a4b7e647f3dc841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 430017650}
+  cooldown: 1
 --- !u!1 &579928211
 GameObject:
   m_ObjectHideFlags: 0
@@ -4078,14 +4102,17 @@ PrefabInstance:
       propertyPath: healthTextAnim
       value: 
       objectReference: {fileID: 1809481073}
-    - target: {fileID: 4549300331614961758, guid: 01f0b62c345823d4b81c6acb22517a83, type: 3}
-      propertyPath: m_SpriteSortPoint
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 6767896766395778346, guid: 01f0b62c345823d4b81c6acb22517a83, type: 3}
+      propertyPath: playerCombat
+      value: 
+      objectReference: {fileID: 430017657}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1051471204402204408, guid: 01f0b62c345823d4b81c6acb22517a83, type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 430017657}
   m_SourcePrefab: {fileID: 100100000, guid: 01f0b62c345823d4b81c6acb22517a83, type: 3}
 --- !u!1 &1429254543
 GameObject:
@@ -4180,6 +4207,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e91695762b397164aad28b30fa77d00e, type: 3}
+--- !u!1 &1457615262
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1457615263}
+  m_Layer: 7
+  m_Name: DetectionRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1457615263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457615262}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1700001, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2117795450}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1681399673
 GameObject:
   m_ObjectHideFlags: 0
@@ -4565,11 +4623,12 @@ Transform:
   m_GameObject: {fileID: 2117795446}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.17, y: -4.41, z: 0}
+  m_LocalPosition: {x: 8, y: -3, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 579928212}
+  - {fileID: 1457615263}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2117795451
@@ -4586,10 +4645,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   attackPoint: {fileID: 579928212}
-  weaponRange: 1.2
+  weaponRange: 1
+  KnockbackForce: 15
+  stunTime: 0.2
   playerLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 1024
 --- !u!114 &2117795452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4603,7 +4664,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  attackRange: 1.2
+  attackRange: 1
+  attackCooldown: 1
+  playerDetectRange: 4
+  detectionPoint: {fileID: 1457615263}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!58 &2117795453
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4611,7 +4678,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2117795446}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     private Animator animator;
     private bool isKnockedBack;
+    public Player_Combat playerCombat; // Reference to the Player_Combat script
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +22,14 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isKnockedBack)
+        if (Input.GetButtonDown("Attack"))
         {
-            rb.velocity = moveSpeed * moveInput;
+            playerCombat.Attack();
         }
+        if (!isKnockedBack)
+            {
+                rb.velocity = moveSpeed * moveInput;
+            }
     }
 
     public void Move(InputAction.CallbackContext context)
