@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efaad8b77ba5426d5a10da44a2280012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layer: Layer 1
+  layer: Player
   sortingLayer: Layer 1
   mountainColliders:
   - {fileID: 0}
